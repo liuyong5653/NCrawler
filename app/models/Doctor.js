@@ -10,32 +10,37 @@ var
   mongodb = require('../configs/db'),
   Schema = mongodb.mongoose.Schema;
 
-
 var supplierSchema = new Schema({
   // 基本属性
   type: {type: Number, default: 0},//0-默认医生; 1-医院; 2-体检机构; 3-药店; 4-诊所
+  id: String,
+  //hospitalId: String, //医生是根据科室来的
+  departmentId: String,
   name: {type: String, default: ''},//名称
-  alias:[String], //别名, 可以是 医生 或者 机构的曾用名
-  pinyin: [String],//姓名拼音数组
-  avatar: {type: String, default: ''},  //医生/机构头像
-  sex: String,        //性别
-  profile: String,    //个人简介
-  contact: String,    //联系方式：手机号、座机
-  hospital: String,   //所属医院
-  address: String,    //地址
-  department: String, //科室
-  position: String,   //职位
-  descriptionImages: [String],//表述性图片
-  descriptionTags: [String],  //描述标签
-  searchTags: [String],       //搜索标签
-  goodAt: String,             //擅长
-  eduBackground: [String],  //教育背景
+  fullGrade: String, //职称
+  goodVoteCount: String,//
+  specialize: String,  //专长
+  schedule: String,        //出诊时间描述
+  homePageUrl: String,    //个人主页面url
+  isCaseOpened: String,
+  isPhoneOpened: String,
+  isBookingOpened: String,
+  logoUrl: String, //头像 TODO 转存到青牛服务器上
+  effectIndex: String,
+  attitudeIndex: String,
+  thankCommentCount: String,
+  casePostCount2Week: String,
+  hospitalFacultyFullName: String,  //医院科室全称
+  caseIntro: String,  //备注
+  goodVote: String,
+  bookingDisease: String,
+  finishPaymentCnt: String,
+  finishBookingCnt: String,
   createdAt: {type: Number, default: Date.now},//用户注册时间
   updatedAt: {type: Number, default: Date.now},//用户最近的更新时间
   isDeleted: {type: Boolean, default: false}//该条记录是否被删除
-
 });
 
-var Supplier = mongodb.mongoose.model('Supplier', supplierSchema);
+var Supplier = mongodb.mongoose.model('Doctor', supplierSchema);
 
 module.exports = Supplier;
