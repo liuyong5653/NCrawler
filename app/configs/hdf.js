@@ -22,6 +22,7 @@ module.exports = {
     "currentUserId": "2048842998"
   },
   getHospitalListByProvince: 'mobileapi/getHospitalListByProvince?',
-  getDoctorListByDepartmentId: 'mobileapi/getDoctorListByHospitalFacultyId?'
-}
-;
+  getHospitalFacultyListByHospitalId: 'mobileapi/getHospitalFacultyListByHospitalId?',
+  getDoctorListByDepartmentId: 'mobileapi/getDoctorListByHospitalFacultyId?',
+  getDoctorInfoByDoctorId: 'mobileapi/getDoctorInfoByDoctorId?'
+};
